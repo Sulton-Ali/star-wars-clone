@@ -1,0 +1,59 @@
+.people-card {
+  position: relative;
+  width: 30%;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover &__info {
+    transform: translateY(0);
+  }
+
+  &__img {
+    width: 100%;
+    border-radius: 20px;
+    transition: 1s;
+    transform: translateZ(1px);
+  }
+
+  &__name {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    @include font(16px, 1.25, 600, $primary-color);
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  &__info {
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s linear;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    transform: translateY(calc(100% - 60px));
+  }
+
+  &__specs {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-item {
+      padding: 5px 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include font(12px, 1.25, 300, $secondary-color);
+      letter-spacing: 2px;
+    }
+  }
+}

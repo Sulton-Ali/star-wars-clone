@@ -1,0 +1,10 @@
+.navbar {
+  &__logo {
+    padding: 20px 0;
+    text-align: center;
+    h2 {
+      font-family: "Star Jedi Outlined";
+      @include font(64px, 1.2, 600, yellow);
+    }
+  }
+}

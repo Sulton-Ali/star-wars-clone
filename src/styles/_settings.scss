@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Star Jedi";
+  src: url("../assets/font/Starjedi.ttf");
+}
+
+@font-face {
+  font-family: "Star Jedi Outlined";
+  src: url("../assets/font/Starjout.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +15,18 @@
 }
 
 body {
-  background-color: teal;
+  background-color: #000000;
+  background-image: url("../assets/img/star-wars-background-2.png");
+  background-position: top center;
+  background-size: cover;
+
+  font-family: "Star Jedi", sans-serif;
+  @include font();
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
