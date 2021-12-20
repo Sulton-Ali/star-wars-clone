@@ -1,8 +1,32 @@
 .peoples {
+  &__title {
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 3px;
+  }
   &__cards {
     display: flex;
     flex-wrap: wrap;
     row-gap: 30px;
     justify-content: space-between;
+  }
+
+  &__content {
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      animation: fade-in 500ms forwards;
+    }
+    &-exit {
+      opacity: 0;
+    }
+    &-exit-active {
+      animation: fade-out 500ms forwards;
+    }
   }
 }

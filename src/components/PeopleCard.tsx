@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IPeopleCardProps } from "../models/peopleCard";
+import { IPeopleCardProps } from "../models/people";
 import { getItemNumber } from "../utils/getItemNumber";
 
 const PeopleCard: FC<IPeopleCardProps> = ({ people }: IPeopleCardProps) => {

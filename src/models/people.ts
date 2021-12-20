@@ -17,6 +17,11 @@ export interface IPeople {
   url: string;
 }
 
+export interface IPeopleResponse {
+  people: IPeople[];
+  totalCount: number;
+}
+
 export interface IPeopleCardProps {
   people: IPeople;
 }

@@ -1,7 +1,10 @@
 @import "./styles/vars";
+@import "./styles/animations";
 @import "./styles/mixins";
 @import "./styles/settings";
 
+@import "./styles/components/Loader";
+@import "./styles/components/Pagination";
 @import "./styles/components/Navbar";
 @import "./styles/components/CategoryCard";
 @import "./styles/components/PeopleCard";

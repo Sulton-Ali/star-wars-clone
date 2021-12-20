@@ -1,0 +1,33 @@
+.pagination {
+  margin: 50px auto;
+
+  &__bullets {
+    text-align: center;
+  }
+
+  &__item {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 2px solid $secondary-color;
+
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    user-select: none;
+    cursor: pointer;
+
+    &--active {
+      border-color: $primary-color;
+    }
+  }
+
+  &__next,
+  &__prev {
+    vertical-align: top;
+  }
+  &__interval {
+    cursor: unset;
+  }
+}

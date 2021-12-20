@@ -1,55 +1,56 @@
 import React, { useEffect, useState } from "react";
-
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import PeopleCard from "../components/PeopleCard";
-import { IPeople } from "../models/peopleCard";
-import { $dataApi } from "../http/dataApi";
+import { fetchPeople } from "../store/actionCreators/peopleActionCreator";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import Loader from "../components/Loader";
+import Pagination from "../components/Pagination";
+import { ITEMS_PER_PAGE } from "../utils/constants";
 
 const PeoplesPage = () => {
-  const [peopleList, setPeopleList] = useState<IPeople[]>([]);
-  const p = {
-    name: "Luke Skywalker",
-    height: "172",
-    mass: "77",
-    hair_color: "blond",
-    skin_color: "fair",
-    eye_color: "blue",
-    birth_year: "19BBY",
-    gender: "male",
-    homeworld: "https://swapi.py4e.com/api/planets/1/",
-    films: [
-      "https://swapi.py4e.com/api/films/1/",
-      "https://swapi.py4e.com/api/films/2/",
-      "https://swapi.py4e.com/api/films/3/",
-      "https://swapi.py4e.com/api/films/6/",
-      "https://swapi.py4e.com/api/films/7/",
-    ],
-    species: ["https://swapi.py4e.com/api/species/1/"],
-    vehicles: [
-      "https://swapi.py4e.com/api/vehicles/14/",
-      "https://swapi.py4e.com/api/vehicles/30/",
-    ],
-    starships: [
-      "https://swapi.py4e.com/api/starships/12/",
-      "https://swapi.py4e.com/api/starships/22/",
-    ],
-    created: "2014-12-09T13:50:51.644000Z",
-    edited: "2014-12-20T21:17:56.891000Z",
-    url: "https://swapi.py4e.com/api/people/1/",
-  };
+  const [pageIndex, setPageIndex] = useState<number>(1);
+  const dispatch = useAppDispatch();
+  const { people, isLoading, totalCount } = useAppSelector(
+    (state) => state.people
+  );
 
   useEffect(() => {
-    $dataApi
-      .get("people/?page=2")
-      .then((res) => setPeopleList(res.data.results));
-  }, []);
+    setTimeout(() => {
+      dispatch(fetchPeople({ page: pageIndex }));
+    }, 500);
+  }, [pageIndex]);
+
+  console.log(isLoading);
+
+  const content = (
+    <div className="people__content">
+      <h2 className="peoples__title">Characters</h2>
+      <div className="peoples__cards">
+        {people && people.map((p) => <PeopleCard key={p.name} people={p} />)}
+      </div>
+      <div className="peoples__pagination">
+        <Pagination
+          totalCount={totalCount}
+          pageSize={ITEMS_PER_PAGE}
+          pageIndex={pageIndex}
+          onChangePageIndex={(page: number) => setPageIndex(page)}
+        />
+      </div>
+    </div>
+  );
 
   return (
     <section className="peoples">
-      <div className="peoples__cards">
-        {peopleList.map((p) => (
-          <PeopleCard key={p.name} people={p} />
-        ))}
-      </div>
+      <SwitchTransition>
+        <CSSTransition
+          key={pageIndex}
+          in={!isLoading}
+          timeout={500}
+          classNames="peoples__content"
+        >
+          {content}
+        </CSSTransition>
+      </SwitchTransition>
     </section>
   );
 };

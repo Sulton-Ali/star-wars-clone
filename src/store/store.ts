@@ -1,6 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import peopleReducer from "./reducers/peopleSlice";
+import filmsReducer from "./reducers/filmsSlice";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  people: peopleReducer,
+  films: filmsReducer,
+});
 
 export const setupStore = () => {
   return configureStore({

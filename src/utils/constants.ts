@@ -9,7 +9,10 @@ export const CATEGORIES = {
 
 export const HOME_ROUTE = "/";
 export const PEOPLES_ROUTE = `/${CATEGORIES.CHARACTER}`;
+export const FILMS_ROUTE = `/${CATEGORIES.FILMS}`;
 
 export const IMAGE_API_BASE_URL =
   "https://starwars-visualguide.com/assets/img/";
 export const DATA_API_BASE_URL = "https://swapi.py4e.com/api/";
+
+export const ITEMS_PER_PAGE = 10;
