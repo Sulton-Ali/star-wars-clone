@@ -37,3 +37,13 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.page-title {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: $primary-color;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 3px;
+}

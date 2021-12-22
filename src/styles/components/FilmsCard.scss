@@ -1,0 +1,88 @@
+.films-card {
+  position: relative;
+  width: 30%;
+  perspective: 1000px;
+  cursor: pointer;
+
+  &__front,
+  &__back {
+    border-radius: 10px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: all 500ms;
+  }
+
+  &__back {
+    padding: 20px 10px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: rotateY(180deg);
+    background-color: $secondary-color;
+    color: teal;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    @include font(16px, 20px, 600, $primary-color);
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  &__specs {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__specs-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+
+    &--opening-crowl {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      border-bottom: none;
+
+      .films-card__specs-value {
+        text-align: justify;
+        max-height: 240px;
+        letter-spacing: 1px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 14;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+
+  &__specs-key {
+    text-align: left;
+  }
+
+  &__specs-value {
+    text-align: right;
+  }
+
+  &:hover &__front {
+    transform: rotateY(180deg);
+  }
+  &:hover &__back {
+    transform: rotateY(360deg);
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

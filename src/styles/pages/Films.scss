@@ -1,0 +1,12 @@
+.films {
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    justify-content: space-between;
+  }
+
+  & .loader {
+    align-self: center;
+  }
+}

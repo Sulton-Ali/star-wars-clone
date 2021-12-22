@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { IPeopleCardProps } from "../models/people";
 import { getItemNumber } from "../utils/getItemNumber";
+import { IMAGE_API_BASE_URL } from "../utils/constants";
 
 const PeopleCard: FC<IPeopleCardProps> = ({ people }: IPeopleCardProps) => {
   const characterId = getItemNumber(people.url);
@@ -8,7 +9,7 @@ const PeopleCard: FC<IPeopleCardProps> = ({ people }: IPeopleCardProps) => {
   return (
     <div className="people-card">
       <img
-        src={`https://starwars-visualguide.com/assets/img/characters/${characterId}.jpg`}
+        src={`${IMAGE_API_BASE_URL}characters/${characterId}.jpg`}
         alt="people img"
         className="people-card__img"
       />

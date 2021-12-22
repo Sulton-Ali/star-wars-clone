@@ -3,7 +3,6 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 import PeopleCard from "../components/PeopleCard";
 import { fetchPeople } from "../store/actionCreators/peopleActionCreator";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import Loader from "../components/Loader";
 import Pagination from "../components/Pagination";
 import { ITEMS_PER_PAGE } from "../utils/constants";
 
@@ -18,13 +17,10 @@ const PeoplesPage = () => {
     setTimeout(() => {
       dispatch(fetchPeople({ page: pageIndex }));
     }, 500);
-  }, [pageIndex]);
-
-  console.log(isLoading);
-
+  }, [pageIndex, dispatch]);
   const content = (
     <div className="people__content">
-      <h2 className="peoples__title">Characters</h2>
+      <h2 className="peoples__title page-title">Characters</h2>
       <div className="peoples__cards">
         {people && people.map((p) => <PeopleCard key={p.name} people={p} />)}
       </div>

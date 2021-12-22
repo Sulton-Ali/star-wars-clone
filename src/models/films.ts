@@ -20,3 +20,7 @@ export interface IFilmsState {
   isLoading: boolean;
   error: string;
 }
+
+export interface IFilmsCardProps {
+  film: IFilms;
+}

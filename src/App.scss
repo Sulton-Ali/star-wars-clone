@@ -1,13 +1,18 @@
+// Base
 @import "./styles/vars";
 @import "./styles/animations";
 @import "./styles/mixins";
 @import "./styles/settings";
 
+// Components
 @import "./styles/components/Loader";
 @import "./styles/components/Pagination";
 @import "./styles/components/Navbar";
 @import "./styles/components/CategoryCard";
 @import "./styles/components/PeopleCard";
+@import "./styles/components/FilmsCard";
 
+// Pages
 @import "./styles/pages/Home";
 @import "./styles/pages/Peoples";
+@import "./styles/pages/Films";
