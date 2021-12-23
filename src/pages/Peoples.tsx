@@ -24,14 +24,16 @@ const PeoplesPage = () => {
       <div className="peoples__cards">
         {people && people.map((p) => <PeopleCard key={p.name} people={p} />)}
       </div>
-      <div className="peoples__pagination">
-        <Pagination
-          totalCount={totalCount}
-          pageSize={ITEMS_PER_PAGE}
-          pageIndex={pageIndex}
-          onChangePageIndex={(page: number) => setPageIndex(page)}
-        />
-      </div>
+      {!isLoading && (
+        <div className="peoples__pagination">
+          <Pagination
+            totalCount={totalCount}
+            pageSize={ITEMS_PER_PAGE}
+            pageIndex={pageIndex}
+            onChangePageIndex={(page: number) => setPageIndex(page)}
+          />
+        </div>
+      )}
     </div>
   );
 
